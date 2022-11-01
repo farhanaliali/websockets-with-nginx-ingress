@@ -27,4 +27,7 @@ These are the steps to be executed in order to start the demo.
 
     ws://{ingress-url}
 
+for https
+
+    wss://{ingress-url}
 

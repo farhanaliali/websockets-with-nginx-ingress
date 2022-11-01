@@ -1,0 +1,37 @@
+deployment.apps/test created (dry run)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test
+    spec:
+      containers:
+      - image: farhanluckali/websocket-demo
+        name: websocket-demo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test
+  labels:
+    app: test
+spec:
+  type: NodePort
+  ports:
+  - name: websockets
+    port: 8080
+    targetPort: 8080
+    
+  selector:
+    app: test
